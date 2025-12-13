@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Login | ProBlog{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <h2 class="mb-3 text-center">Login</h2>
+    <div class="card">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            {{ form.username }}
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            {{ form.password }}
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 mb-2">
+            Login
+          </button>
+
+          <p class="text-center small mb-0">
+            Don't have an account?
+            <a href="{% url 'signup' %}">Sign up</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
