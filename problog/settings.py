@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x24g!d51^2bdlvu3l6$^4+_*2#pziv*on!1=vbp4)$-c(h2ayd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -136,8 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TEMPLATES[0]["DIRS"] = [BASE_DIR / "templates"]
 
 # Static files (CSS, JS, images)
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Media files (uploaded images)
 MEDIA_URL = "/media/"
@@ -157,4 +155,15 @@ EMAIL_HOST_PASSWORD = "your_app_password_here"   # Gmail App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATIC_URL = '/static/'
+
+# IMPORTANT: required for Render
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# OPTIONAL: only keep if folder exists
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 
