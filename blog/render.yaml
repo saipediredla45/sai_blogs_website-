@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: problog-web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn problog.wsgi:application
